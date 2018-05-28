@@ -1,0 +1,33 @@
+<!doctype>
+<html>
+	<head>
+
+	</head>
+	<body>
+
+	<div id="xx"></div>
+
+		
+		
+		<script>
+		alert(1)
+
+function a1(x){
+	return function(y){
+		return function(z){
+			
+				return x+y+z
+				
+		}
+	}
+}
+
+
+
+const a = (x) => (y) => (z) =>  z+y+x
+
+alert(a(1)(2)(3))
+alert(a1(1)(2)(3))
+		</script>			
+	</body>
+</html>

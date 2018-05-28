@@ -1,0 +1,27 @@
+<!doctype>
+<html>
+	<head>
+
+	</head>
+	<body>
+
+	<div id="xx"></div>
+
+		
+		
+		<script>
+var a = 1;
+
+let f = () => {a+=1; alert(a); alert(this)};
+
+setTimeout(() => {alert(this.a);alert(a)},1000)
+
+
+var x = function(){
+	setTimeout(() => {alert(this.a);alert(a)},1000)
+}
+
+x.call({a:3,b:2});
+		</script>			
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+var tmp = new Date();
+
+function f() {
+  console.log(tmp);
+  if (false) {
+    var tmp = 'hello world';
+  }
+}
+
+f(); // undefined
+		</script>
+	</head>
+	<body>
+			
+	</body>
+</html>

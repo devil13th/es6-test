@@ -1,0 +1,34 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+var obj = new Proxy({}, {
+  get: function (target, key, receiver) {
+    console.log(`getting ${key}!`);
+    return Reflect.get(target, key, receiver);
+  },
+  set: function (target, key, value, receiver) {
+    console.log(`setting ${key}!`);
+    return Reflect.set(target, key, value, receiver);
+  }
+});
+
+obj.count = 1
+obj.customArray = 5;
+console.log(obj.count + " ------ 3");
+//  setting count!
+obj.count++;
+console.log(obj.count + " ------ 4")
+console.log(obj["count"] + " --- 5 " );
+console.log(obj.customArribute)
+//  getting count!
+//  setting count!
+//  2
+</script>			
+
+	</body>
+</html>

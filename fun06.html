@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+	<head>
+
+	</head>
+	<body>
+
+	<div id="xx"></div>
+
+		
+		
+		<script>
+
+
+function print(str){
+	console.log(str);
+}
+
+
+
+function ware1(funPrint,str){
+	return function(){
+		console.log("-");	
+		funPrint(str);
+		console.log("=");
+	}
+}
+
+function ware2(funPrint,str){
+	return function(){
+		console.log("--");	
+		funPrint(str);
+		console.log("==");
+	}
+}
+
+function ware3(funPrint,str){
+	return function(){
+		console.log("---");	
+		funPrint(str);
+		console.log("===");
+	}
+}
+
+ware3(ware2(ware2(print,"1")))();
+
+const qt = (funPrint,str) => () => () => {alert(str); console.log(str)}
+
+qt(print,2)();
+
+
+		</script>
+	</body>
+</html>

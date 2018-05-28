@@ -1,0 +1,66 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+class Point{
+	
+	static getA(){
+		console.log(Point == this);
+		console.log(this)
+		//this指向Point类本身
+		return this.A 
+	}
+	constructor(x,y){
+		this.x = x;
+		this.y = y;
+	}
+
+	toString(){
+		return `x:${this.x} , y :${this.y}`;
+	}
+
+	get prop() {
+		return 'getter';
+	}
+	set prop(value) {
+		console.log('setter: '+value);
+	}
+}
+
+Point.prototype.m = 4;
+
+class SpacePoint extends Point{
+
+	constructor(x,y,z=0){
+		super(x,y);
+		this.z = z;
+		console.log(this);
+		
+	}
+
+	toString() {
+		return `z:${this.z} , ` + super.toString(); // 调用父类的toString()
+	}
+
+	getM(){
+		return super.m;
+	}
+}
+
+var sp = new SpacePoint(1,2,3);
+console.log(sp.toString());
+console.log(sp.prop)
+
+console.log(sp instanceof SpacePoint) // true
+console.log(sp instanceof Point) // true
+
+SpacePoint.getA();
+console.log(sp.getM());
+</script>			
+
+	</body>
+</html>

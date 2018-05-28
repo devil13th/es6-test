@@ -1,0 +1,20 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+var obj = new Proxy( function () { return 'I am the target'; }, {
+  apply: function (target, ctx, args) {
+    //return 'I am the proxy';
+	 return Reflect.apply(...arguments);
+  }
+});
+
+console.log(obj());
+</script>			
+
+	</body>
+</html>

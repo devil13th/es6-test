@@ -1,0 +1,30 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+class Point{
+	constructor(x,y){
+		this.x = x;
+		this.y = y;
+	}
+
+	toString(){
+		return `x:${this.x} , y :${this.y}`;
+	}
+}
+
+const p = new Point(5,4);
+console.log(p.toString());
+console.log(typeof Point); // "function"
+
+console.log(Point === Point.prototype.constructor) // true
+
+
+</script>			
+
+	</body>
+</html>

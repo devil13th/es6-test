@@ -1,0 +1,31 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+let Person = function(name,age){
+	let inst = {};
+	let a = Symbol();
+	inst[a] = name;
+	inst.age = 5;
+
+	this.getName = function(){
+		console.log(a);
+		return inst[a];
+	}
+}
+
+
+var p = new Person("张三",5);
+p.name = "李四";
+
+console.log(p);
+
+console.log(p.getName());
+</script>			
+
+	</body>
+</html>

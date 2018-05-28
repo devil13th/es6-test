@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+请放到服务器下执行,否则CHORME JS读取文件没有权限
+<script type="module">
+
+//引入的三种命名规则都可以 
+/*
+
+1.import{ A as B }中的A 是 export{ X as Y} 的 Y
+2.myName是modulea.js中默认导出的,import 可以随便对齐起名
+
+*/
+import 
+myName,
+{
+firstName as firstName,  //给个别名
+lastName,  //默认
+year as y  // 该名称
+} from './module01a.js';
+
+
+
+
+import {People} from './module01a.js';
+
+import {module3, fun1, fun2} from './module01b.js';
+
+function say() {
+  alert('Hello , ' + myName );
+}
+
+say();
+
+fun1(lastName);
+fun2(firstName);
+module3(y);
+
+const p = new People("devi1l3th","1991-01-01");
+p.born();
+</script>			
+
+	</body>
+</html>

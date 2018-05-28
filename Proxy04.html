@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+var obj = {
+	getName : function(){
+		console.log("xx");
+		return "xx";
+	}
+}
+
+var obj2 = new Proxy(obj,{
+	apply (target, ctx, args){
+		console.log("xxxxxx");
+		return Reflect.apply(...arguments);
+	}
+})
+obj.getName.apply(obj2);
+obj.getName();
+
+</script>			
+
+	</body>
+</html>

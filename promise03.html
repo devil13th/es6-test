@@ -1,0 +1,26 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+var p = new Promise(function(resolve,reject){
+      var a=1
+      resolve(a);
+      
+  }).then(function(data){
+      console.log("1----" + data)
+      return ++data;
+  }).then( function(data){
+      console.log("2----" + data)
+  } )
+
+
+//这样在6秒钟之后会打出11
+
+</script>			
+
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+//-------------------- example01--------------------
+let arr = [1,2,3];
+
+let myFun = (a,b,c) => {
+	console.log(` example01 : ${a} | ${b} | ${c}`);
+}
+
+myFun(...arr);
+
+
+//-------------------- example02--------------------
+
+let arr2 = [1,2,3];
+let arr2_1 = [...arr2];
+console.log(` example02 :  ${arr2_1} `);
+arr2[2] = 4;
+console.log(` example02 :  ${arr2} `);
+console.log(` example02 :  ${arr2_1} `);
+		</script>
+	</head>
+	<body>
+			
+	</body>
+</html>

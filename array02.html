@@ -1,0 +1,25 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+<div class="x" id="a1">1</div>
+<div class="x" id="a2">2</div>
+<div class="x" id="a3">3</div>
+<div class="x" id="a4">4</div>
+<div class="x" id="a5">5</div>
+<div class="x" id="a6">6</div>
+<script>
+let els = document.querySelectorAll(".x");
+
+let elsArray = Array.from(els);
+console.log(elsArray);
+
+let elsArray2 = Array.from(els).filter(x => {
+	return parseInt(x.innerHTML) > 3;
+});
+console.log(elsArray2);
+</script>			
+	</body>
+</html>

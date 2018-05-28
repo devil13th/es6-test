@@ -1,0 +1,22 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+var a = Symbol(); //系统唯一的值
+var b = Symbol(); //系统唯一的值
+console.log(a===b);
+
+var obj = {}
+obj.a = 1;
+obj.b = 2;
+obj[a] = 3;
+var a =  Symbol();
+obj[a] = 4;
+console.log(obj)
+</script>			
+	</body>
+</html>

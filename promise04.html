@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+
+
+const f1 = () => {
+	return new Promise(function(resolve,reject){
+		setTimeout(() => {
+			console.log(1);
+			resolve(2);
+		},1000)
+	})
+}
+
+const f2 = (x) => {
+	return new Promise(function(resolve,reject){
+		setTimeout(() => {
+			console.log(x);
+			resolve(3);
+		},1000)
+	});
+}
+
+const f3 = (x) => {
+	return new Promise(function(resolve,reject){
+		setTimeout(() => {
+			console.log(x);
+			resolve(4);
+		},1000)
+	});
+}
+
+const f4 = (x) => {
+	console.log("console.log:" + x);
+}
+f1().then(f2).then(f3).then(f4)
+
+
+
+</script>			
+
+	</body>
+</html>

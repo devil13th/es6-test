@@ -1,0 +1,79 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+
+
+console.dir(Promise);
+
+
+
+var p1 = new Promise(function(resolve, reject){
+    //做一些异步操作
+    setTimeout(function(){
+        console.log('执行完成');
+        resolve('随便什么数据');
+    }, 2000);
+
+	console.log("...");
+});
+
+p1.then(function(x){
+	console.log(x);
+})
+
+
+/*
+const p = new Promise((resolve, reject) => {
+	resolve(resolve);
+})
+
+
+p.then(
+	function(f){
+		setTimeout(function(){
+			console.log(1);
+			resolve(f);
+		},1000)
+	}
+).then(
+	function(f){
+		setTimeout(function(){
+			console.log(2);
+			resolve(f);
+		},1000)
+	}
+)
+.then(
+	function(f){
+		setTimeout(function(){
+			console.log(3);
+			resolve(f);
+		},1000)
+	}
+)
+.then(
+	function(f){
+		setTimeout(function(){
+			console.log(4);
+			resolve(f);
+		},1000)
+	}
+)
+.then(
+	function(f){
+		setTimeout(function(){
+			console.log(5);
+			resolve(f);
+		},1000)
+	}
+)
+*/
+</script>			
+
+	</body>
+</html>

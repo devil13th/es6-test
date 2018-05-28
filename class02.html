@@ -1,0 +1,53 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+class Point{
+	
+	static getA(){
+		console.log(Point.A);
+		//this指向Point类本身
+		return this.A 
+	}
+	constructor(x,y,z=0){
+		this.z = z;
+		this.x = x;
+		this.y = y;
+	}
+
+	toString(){
+		return `x:${this.x} , y :${this.y}`;
+	}
+
+	get prop() {
+		return 'getter';
+	}
+	set prop(value) {
+		console.log('setter: '+value);
+	}
+}
+
+Point.A = 3;
+
+const p = new Point(5,4);
+
+console.log(Point.A);
+
+console.log(Point.getA());
+
+p.prop = 4;
+console.log(p.prop);
+
+console.log(p.z);
+
+
+
+
+</script>			
+
+	</body>
+</html>

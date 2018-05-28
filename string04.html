@@ -1,0 +1,26 @@
+<!doctype>
+<html>
+	<head>
+
+	</head>
+	<body>
+
+	<div id="xx"></div>
+
+		
+		
+		<script>
+let data = {};
+data.supplies = [1,2,3,4,5]
+let template = `
+<ul>
+  <% for(let i=0; i < data.supplies.length; i++) { %>
+    <li><%= data.supplies[i] %></li>
+  <% } %>
+</ul>
+`;
+
+document.getElementById("xx").innerHTML = template
+		</script>			
+	</body>
+</html>

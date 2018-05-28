@@ -1,0 +1,43 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+var obj = new Proxy({}, {
+  get: function (target, key, receiver) {
+    console.log(`get ${key}!`);
+	if (key in target) {
+      //return target[property];
+	  return Reflect.get(target, key, receiver);
+    } else {
+      throw new ReferenceError(`Property " ${key} " does not exist.`);
+    }
+  },
+  set: function (target, key, value, receiver) {
+    console.log(`set ${key}!`);
+    return Reflect.set(target, key, value, receiver);
+  },
+  has: function (target, key,) {
+    console.log(`has ${key}!`);
+    return Reflect.has(target, key);
+  },
+  apply: function (target, ctx, args) {
+    return 'I am the proxy';
+  }
+});
+
+obj.count = 1
+//引用会抛出异常
+//console.log(obj.b + " ------ 1");
+
+
+if("b" in obj ){
+	console.log("true" + "---------2")
+}
+</script>			
+
+	</body>
+</html>
