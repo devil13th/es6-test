@@ -1,0 +1,39 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+function* g(){
+	alert("first")
+	yield "first";
+
+	alert("second")
+	yield "second";
+
+	alert("third")
+	return "third";
+}
+
+var a = g();
+
+
+function goon(){
+	var r = a.next();
+	document.getElementById("t").innerHTML = document.getElementById("t").innerHTML+"<br/>" + JSON.stringify(r);
+}
+
+function rst(){
+	 a= g();
+	 document.getElementById("t").innerHTML = document.getElementById("t").innerHTML+"<br/>" + "---------- reset ------------";
+}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="¼ÌÐø" onclick="goon()"/>
+		<input type="button" value="ÖØÖÃ" onclick="rst()"/>
+
+
+		<div id="t"></div>
+
+		
+	</body>
+</html>

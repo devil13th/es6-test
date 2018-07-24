@@ -1,0 +1,44 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+function* numbers() {
+    console.log('function start.');
+
+    var v1 = yield 0;
+    console.log('v1 = ' + v1);
+
+    var v2 = yield 1;
+    console.log('v2 = ' + v2);
+
+    return 5;
+}
+
+var nums = numbers();
+
+alert(1);
+// 第 1 次调用 next, v1 的值还没有返回.
+console.log(nums.next(2)); 
+
+alert(2);
+// 第 2 次调用 next, next 参数作为上一次 yield 值返回给 v1.
+console.log(nums.next(3)); 
+
+alert(3);
+// 第 3 次调用 next, 此时 done 的值为 true, 直接返回 return 的值.
+console.log(nums.next(4)); 
+
+
+
+		</script>
+	</head>
+	<body>
+		<input type="button" value="ajax" onclick="ajax()"/>
+	
+
+
+		<div id="t"></div>
+
+		
+	</body>
+</html>

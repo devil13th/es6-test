@@ -1,0 +1,53 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+
+
+const f1 = () => {
+	return new Promise(function(resolve,reject){
+		setTimeout(() => {
+			console.log("f1 执行");
+			resolve(2);
+		},1000)
+	})
+}
+
+const f2 = () => {
+	return new Promise(function(resolve,reject){
+		setTimeout(() => {
+			console.log("f2 执行");
+			resolve(3);
+		},2000)
+	});
+}
+
+const f3 = () => {
+	return new Promise(function(resolve,reject){
+		setTimeout(() => {
+			console.log("f3 执行");
+			resolve(4);
+		},3000)
+	});
+}
+
+
+const p = Promise.race([f1(),f2(),f3()]);
+
+p.then(function(x){
+	console.log("结果：",x);
+	console.log("f1,f2,f3 全部执行完成");
+})
+
+
+
+
+
+</script>			
+
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+function request(url) {
+	setTimeout(function(){
+		console.log("外部接收",it.next(Math.random()));
+	},1000)
+}
+
+function* ajaxs() {
+    console.log("内部接收",yield request('a.html'));
+    console.log("内部接收",yield request('b.html'));
+    console.log("内部接收",yield request('c.html'));
+	
+	return " generator 函数执行完成"
+}
+
+var it = ajaxs();//只是初始化，并不执行generator函数
+
+console.log("从我这里开始执行generator函数",it.next());
+
+
+setTimeout(function(){console.log("结束提示",it.next(Math.random()));},4000)
+
+console.log("我的位置在最后，但是提前完成了，说明还是异步的，yield只是挂起了所在函数的执行")
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

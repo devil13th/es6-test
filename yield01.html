@@ -1,0 +1,37 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+function* g(){
+	alert(1)
+	yield "start";
+
+	alert(2)
+	yield "goon";
+
+	alert(3)
+	return "end";
+}
+
+let a = g();
+console.log(a);
+let r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+
+ r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

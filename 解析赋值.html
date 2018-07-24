@@ -1,0 +1,63 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+
+
+//解析赋值
+function test01(){
+	const a = {name:"zhangsan",age:5};
+	const {name,age} = a;
+	alert(name+'|'+age);
+}
+
+//重命名解析赋值
+function test02(){
+	const a = {name:"zhangsan1",age:52};
+	const {name : n,age:ag} = a;
+	alert(n+'|'+ag);
+}
+
+
+//合并对象
+function test03(){
+	const a = {x:1};
+	const b = {y:2};
+	const c = {...a,...b};
+	console.log(c);
+}
+
+
+//修改属性值
+function test04(){
+	const a = {x:1,y:2,z:3};
+	const c = {...a,z:5,c:3};
+	console.log(c);
+}
+
+//修改属性值
+function test05(){
+	const a = {x:1,y:2,n:3,m:4};
+	console.log(a);
+	const b = {n:5,m:6}
+	const c = {...a,...b}
+	console.log(c);
+}
+
+
+
+
+
+
+
+		</script>
+	</head>
+	<body>
+
+<input type="button" onclick="test01()" value="test01"/>
+<input type="button" onclick="test02()" value="test02"/>
+<input type="button" onclick="test03()" value="test03"/>
+<input type="button" onclick="test04()" value="test04"/>
+<input type="button" onclick="test05()" value="test05"/>
+	</body>
+</html>
