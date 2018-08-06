@@ -1,0 +1,63 @@
+<!doctype>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<script>
+</script>
+</head>
+
+<body>
+
+
+<div id="st">
+未开始
+</div>
+
+
+<input type="button" value="click me to loading" onclick="begin()"/>
+
+<script>
+var p = null;
+
+function loading(){
+	p = setTimeout(function(){
+		document.getElementById("st").innerHTML = document.getElementById("st").innerHTML  + ".";
+		loading();
+	},30)
+}
+
+
+
+
+function begin(){
+	function* main() {
+		document.getElementById("st").innerHTML = "正在加载...";
+
+		//开始Loading
+		loading();
+		//模拟请求
+		var name = yield request("http://192.168.248.92:8430/jobengine/getjobinfo/test0314-a");
+		//清除loading
+		clearTimeout(p);
+
+		document.getElementById("st").innerHTML = "hello " + name;
+	}
+	
+	//模拟异步请求的函数
+	function request(url) {
+		console.log("开始异步执行");
+		setTimeout(function(){
+			console.log("异步执行完成");
+			it.next("devil13th");
+		},2000)
+	}
+	var it = main();
+	it.next();
+}
+
+
+
+</script>
+</body>
+</html>

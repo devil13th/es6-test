@@ -1,0 +1,94 @@
+<!doctype>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<script>
+</script>
+</head>
+
+<body>
+
+
+
+
+
+<input type="button" value="click me to loading" onclick="main()"/>
+
+<script>
+
+
+function step1(s){
+	console.log("--------------- step1 ---------------");
+	console.log(s)
+	console.log("======================================");
+	return "step1 return"
+}
+
+function step2(s){
+	console.log("--------------- step2 ---------------");
+	console.log(s)
+	console.log("======================================");
+	return "step2 return"
+}
+
+function step3(s){
+	console.log("--------------- step3 ---------------");
+	console.log(s)
+	console.log("======================================");
+	return "step3 return"
+}
+
+function step4(s){
+	console.log("--------------- step4 ---------------");
+	console.log(s)
+	console.log("======================================");
+	return "step4 return"
+}
+
+function* longRunningTask(value1) {
+  try {
+    var value2 = yield step1(value1);
+    var value3 = yield step2(value2);
+    var value4 = yield step3(value3);
+    var value5 = yield step4(value4);
+    // Do something with value4
+  } catch (e) {
+    // Handle any error from step1 through step4
+  }
+}
+
+var obj = longRunningTask("begin");
+
+function main(result){
+	var result = obj.next(result)
+	console.log(result);
+	if(!result.done){
+		console.log(result.value);
+		main(result);
+	}else{
+	
+	}
+}
+
+
+/*
+
+scheduler(longRunningTask(initialValue));
+
+function scheduler(task) {
+  var taskObj = task.next(task.value);
+  // 如果Generator函数未结束，就继续调用
+  if (!taskObj.done) {
+    task.value = taskObj.value
+    scheduler(task);
+  }
+}
+*/
+
+
+
+
+</script>
+</body>
+</html>

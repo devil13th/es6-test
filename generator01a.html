@@ -1,0 +1,43 @@
+<!doctype>
+<html>
+	<head>
+		<script>
+/*
+从执行结果的输出顺序可以看出，停顿只是在generator内部停顿，外部仍是异步执行
+*/
+
+function* g(){
+	yield "start";
+
+	yield "goon";
+	//----- 1 -----
+	console.log("3")
+	return "end";
+}
+
+let a = g();
+
+
+setTimeout(function(){
+	var obj = a.next();
+	//----- 1 -----
+	console.log(2);
+},1000)
+
+setTimeout(function(){
+	var obj = a.next();
+	//----- 1 -----
+	console.log(4);
+},2000)
+
+var c = a.next();
+
+//----- 1 -----
+console.log(1)
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

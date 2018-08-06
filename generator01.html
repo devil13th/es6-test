@@ -1,31 +1,39 @@
 <!doctype>
 <html>
 	<head>
-		
-	</head>
-	<body>
+		<script>
+function* g(){
+	alert(1)
+	yield "start";
 
-<script>
-function* test(){
-	console.log("1");
-	alert(1);
-	yield "hello";
+	alert(2)
+	yield "goon";
 
-	alert(2);
-	console.log("2");
-	yield "world";
-
-	alert(3);
-	console.log("3");
-	return "finish";
+	alert(3)
+	return "end";
 }
 
-var t = test();
-console.log(t.next());
-console.log(t.next());
-console.log(t.next());
-console.log(t.next());
-</script>			
+let a = g();
+console.log(a);
+let r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
 
+ r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+ r = a.next();
+console.log(r);
+
+alert("finish")
+
+		</script>
+	</head>
+	<body>
+		
 	</body>
 </html>

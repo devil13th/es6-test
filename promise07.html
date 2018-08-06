@@ -1,0 +1,34 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+
+
+var a = new Promise(function(resolve,reject){
+	console.log("begin");
+	resolve(4);
+});
+
+console.log(a);
+
+a.then(
+	function(x){
+		console.log(x)
+		return "xxx";
+	}
+).then(
+	function(x){
+		console.log(x)
+	}
+)
+
+
+
+</script>			
+
+	</body>
+</html>

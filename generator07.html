@@ -1,0 +1,58 @@
+<!doctype>
+<html>
+<head>
+<title></title>
+<script>
+</script>
+</head>
+
+<body>
+
+<script>
+
+function* main() {
+  var result = yield request("http://192.168.248.92:8430/jobengine/getjobinfo/test0314-a");
+  var resp = JSON.parse(result);
+    console.log(resp.value);
+}
+
+
+function headers() {
+  const token = localStorage.getItem('token');
+
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${token}`,
+    'token': token,
+  };
+}
+
+
+
+function request(url) {
+  makeAjaxCall(url, function(response){
+    it.next(response);
+  });
+}
+
+function request(url,method) {
+    return fetch(`${url}`, {
+      method:method,
+	  headers:headers(),
+    }).then(function(res){
+		return res.next();
+	}).then(function(res){
+		alert(res)
+	})
+
+}
+
+
+var it = main();
+it.next();
+
+</script>
+</body>
+</html>

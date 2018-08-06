@@ -1,0 +1,31 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+function* test(){
+	console.log("1");
+	alert(1);
+	yield "hello";
+
+	alert(2);
+	console.log("2");
+	yield "world";
+
+	alert(3);
+	console.log("3");
+	return "finish";
+}
+
+var t = test();
+console.log(t.next());
+console.log(t.next());
+console.log(t.next());
+console.log(t.next());
+</script>			
+
+	</body>
+</html>

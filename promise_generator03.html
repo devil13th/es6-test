@@ -1,0 +1,60 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+
+function *j(){
+	
+	console.log("-----------begin----------");
+	let a = yield getA();
+	console.log(a);
+	let b = yield "b";
+	console.log(b);
+
+	console.log("finish");
+	return "xxx";
+}
+
+function getA(){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+			resolve("1");
+		},2000)
+	})
+}
+
+
+
+
+
+
+let jf = j();
+console.log("begin...");
+var a1 = jf.next("return a");
+console.log(a1);
+
+
+a1.value.then(function(x){
+	alert(x)
+	jf.next("return b");
+})
+
+
+
+
+console.log("finish...");
+
+
+
+
+
+
+
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype>
+<html>
+	<head>
+		
+	</head>
+	<body>
+
+<script>
+
+async function timeout(ms) {
+  await new Promise((resolve) => {
+	alert("aaa")
+    setTimeout(function(){alert("bbb");resolve("ccc")}, ms);
+  });
+}
+
+async function asyncPrint(value, ms) {
+  await timeout(ms);
+  console.log(value);
+  return 4;
+}
+/*
+asyncPrint('hello world', 2000).then(function(x){alert(x)});
+
+*/
+
+/*
+function* timeout(ms) {
+  yield new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+function* asyncPrint(value, ms) {
+  yield timeout(ms);
+  console.log(value);
+}
+*/
+asyncPrint('hello world', 2000).then(function(x){console.log(x)}).then(function(x){alert(x)});
+
+
+
+
+</script>
+
+	</body>
+</html>
